@@ -18,10 +18,17 @@ public class Warrior extends Human {
         //setHp(300);
         setCoins(0);
         setMp(0);
-        attacks = new String[] {"sword"};
+        attacks = new String[] {"sword Dmg: 40"};
     }
     
     public String[] getAttacks(){
         return attacks;
+    }
+    
+    public int att(int i){
+        if(i == 0)
+            return 40;
+                
+        return 0;
     }
 }

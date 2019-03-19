@@ -13,9 +13,8 @@ package hero;
  */
 public class Hero extends Human {
     
-    private String spell;
     private boolean bow;
-    private int numArrows, key;
+    private int numArrows, key, spellDmg, spellCost;
     private String[] attacks;
     
     public Hero(int _hp, String _name){
@@ -23,11 +22,12 @@ public class Hero extends Human {
         //setHp(200);
         setCoins(2);
         setMp(100);
-        spell = "None";
         bow = false;
         numArrows = 0;
         key = 0;
-        attacks = new String[] {"sword", "None"};
+        attacks = new String[] {"sword Dmg: 30", "Not unlocked yet"};
+        spellDmg = 0;
+        spellCost = 200;
     }
     
     
@@ -35,13 +35,29 @@ public class Hero extends Human {
         return attacks;
     }
     
-    
-    public void setSpell(String spellName){
-        spell = spellName;
+    public int att(int i){
+        if(i == 0)
+            return 30;
+        else if(i == 1 && getMp() >= spellCost)
+            return spellDmg;
+                
+        return 0;
     }
     
-    public String getSpell(){
-        return spell;
+    
+    public void setSpell(int spellName){
+        if(spellName == 0)
+        {
+            attacks[2] = "fire Dmg: 75   Mana Cost: 50";
+            spellDmg = 75;
+            spellCost = 50;
+        }
+        else
+        {
+            attacks[2] = "ice Dmg: 40   Mana Cost: 25";
+            spellDmg = 40;
+            spellCost = 25;
+        }
     }
     
     

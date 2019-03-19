@@ -73,6 +73,9 @@ public class fight {
                     + team.getTeamMembers()[i].getName());
         }
         
+        int at;
+        
+        do{
         Scanner sc = new Scanner(System.in);
         String a = sc.nextLine();
         Human attacker = team.getTeamMembers()[(int)a.charAt(0) - 49];
@@ -84,7 +87,8 @@ public class fight {
         }
         
         a = sc.nextLine();
-        int at = attacker.att((int)a.charAt(0) - 49);
+        at = attacker.att((int)a.charAt(0) - 49);
+        }while(at != 0);
         
         ennemies[ennemi].setHp(ennemies[ennemi].getHp() - at/numbers[ennemi]);
         

@@ -58,16 +58,24 @@ public class GameManager {
             if (pos.getName() == "start")
                 System.out.println("Input is too low");
             else {
-                pos = pos.getPrec();
-                clearConsole();
+                if (!pos.getLockR()) {
+                    pos = pos.getPrec();
+                    clearConsole();
+                }
+                else
+                    System.out.println("Door is lock");
             }
         }
         else
             if (x > pos.getAdj().length)
                 System.out.println("Input is too high");
             else {
-                pos = pos.getAdj()[x-1];
-                clearConsole();
+                if (!pos.getLockF()) {
+                    pos = pos.getAdj()[x-1];
+                    clearConsole();
+                }
+                else
+                    System.out.println("Door is lock");
             }
     }
     

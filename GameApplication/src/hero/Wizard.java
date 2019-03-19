@@ -20,7 +20,8 @@ public class Wizard extends Human {
         //setHp(100);
         setCoins(10);
         setMp(300);
-        attacks = new String[] {"fire", "ice", "heal"};
+        attacks = new String[] {"fire Dmg: 120   Mana Cost: 100", 
+            "ice Dmg: 65   Mana Cost: 60"};
         fireDmg = 120;
         iceDmg = 65;
     }

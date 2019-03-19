@@ -22,10 +22,12 @@ public class Map {
     
     
     private void init() {
-        mapList[0] = new Intro("Welcome! There is a farm in front of you.", 1);
-        mapList[1] = new Intro("Here is a farm!", 1);
-        mapList[2] = new Intro("There is a clear land in front of you. Or maybe would you like to attempt the dungeon...", 1);
-        mapList[3] = new Nature("Here is the open world!", 1);
+        mapList[0] = new Room("start", 1, "Welcome! There is a farm in front of you.");
+        mapList[1] = new Room("farm", 1, "Here is a farm!");
+        //System.out.println(mapList[0].adj[0].name);
+        mapList[2] = new Room("village exit", 2, "There is a clear land in front of you. Or maybe would you like to attempt the dungeon...");
+        mapList[3] = new Room("fields", 1, "Here is the open world!");
+        mapList[4] = new Room("dungeon entry", 1, "you are in the dungeon");
         
         linkAll();
     }
@@ -34,17 +36,21 @@ public class Map {
     private void linkAll() {
         /*  has to be done manualy :'(  */
         linkRooms(0, 1);
+        linkRooms(1, 0);
         linkRooms(1, 2);
+        linkRooms(2, 1);
+        linkRooms(2, 3);
+        linkRooms(2, 4);
     }
     
     
     private void linkRooms(int src, int dst) {
         
-        for (int i = 0; i < mapList[src].directions.length; i++) {
-            
-            if (mapList[src].directions == null) {
-                mapList[src].directions[i] = mapList[dst];
-                mapList[src].nbLinks++;
+        for (int i = 0; i < mapList[src].adj.length; i++) {
+
+            if (mapList[src].adj[i] == null) {
+                mapList[src].adj[i] = mapList[dst];
+                break;
             }
         }
     }
@@ -59,5 +65,5 @@ public class Map {
     }
     
     
-    public Room[] GetMapList() { return mapList; }
+    public Room[] getMapList() { return mapList; }
 }

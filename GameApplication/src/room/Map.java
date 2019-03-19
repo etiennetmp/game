@@ -22,10 +22,11 @@ public class Map {
     
     
     private void init() {
-        mapList[0] = new Intro("Welcome! There is a farm in front of you.", 1);
-        mapList[1] = new Intro("Here is a farm!", 1);
-        mapList[2] = new Intro("There is a clear land in front of you. Or maybe would you like to attempt the dungeon...", 1);
-        mapList[3] = new Nature("Here is the open world!", 1);
+        mapList[0] = new Room("start", 1, "Welcome! There is a farm in front of you.");
+        mapList[1] = new Room("farm", 1, "Here is a farm!");
+        mapList[2] = new Room("village exit", 2, "There is a clear land in front of you. Or maybe would you like to attempt the dungeon...");
+        mapList[19] = new Room("fields", 1, "Here is the open world!");
+        mapList[3] = new Room("dungeon entry", 1, "You are in the dungeon.. Can't go back !");
         
         linkAll();
     }
@@ -33,20 +34,42 @@ public class Map {
     
     private void linkAll() {
         /*  has to be done manualy :'(  */
-        linkRooms(0, 1);
-        linkRooms(1, 2);
+        backLinkRooms(0, 0);
+        linkRoom(0, 1);
+        backLinkRooms(1, 0);
+        linkRoom(1, 2);
+        backLinkRooms(2, 1);
+        linkRooms(2, 3, 4);
+        backLinkRooms(3, 2);
     }
     
     
-    private void linkRooms(int src, int dst) {
+    private void linkRoom(int src, int dst) {
         
-        for (int i = 0; i < mapList[src].directions.length; i++) {
-            
-            if (mapList[src].directions == null) {
-                mapList[src].directions[i] = mapList[dst];
-                mapList[src].nbLinks++;
+        for (int i = 0; i < mapList[src].adj.length; i++) {
+
+            if (mapList[src].adj[i] == null) {
+                mapList[src].adj[i] = mapList[dst];
+                break;
             }
         }
+    }
+    
+    private void linkRooms(int src, int dst1, int dst2) {
+        
+        for (int i = 0; i < mapList[src].adj.length; i++) {
+
+            if (mapList[src].adj[i] == null) {
+                mapList[src].adj[i] = mapList[dst1];
+                mapList[src].adj[i+1] = mapList[dst2];
+                break;
+            }
+        }
+    }
+    
+    
+    private void backLinkRooms(int src, int dst) {
+        mapList[src].prec = mapList[dst];
     }
     
     
@@ -54,10 +77,11 @@ public class Map {
         
         for (int i = 0; i < nbRooms; i++) {
             System.out.print(i+" : ");
-            System.out.println(mapList[i].desc);
+            mapList[i].printDirections();
+            System.out.println(mapList[i].prec.name);
         }
     }
     
     
-    public Room[] GetMapList() { return mapList; }
+    public Room[] getMapList() { return mapList; }
 }

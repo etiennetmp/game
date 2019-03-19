@@ -15,10 +15,13 @@ public class Room {
     String desc, name;
     int[] itemList; //change type
     int[] enttList; //change type
+    boolean lockFront, lockRear;
     
-    public Room(String _name, int size, String _desc) {
+    public Room(String _name, int size, boolean _lockF, boolean _lockR, String _desc) {
         name = _name;
         adj = new Room[size];
+        lockFront = _lockF;
+        lockRear = _lockR;
         desc = _desc;
     }
     
@@ -34,6 +37,8 @@ public class Room {
     public Room[] getAdj() { return adj; }
     public String getName() { return name; }
     public Room getPrec() { return prec; }
+    public boolean getLockR() { return lockRear; }
+    public boolean getLockF() { return lockFront; }
     
     public void printDirections() {
         System.out.print("["+adj[0].name);

@@ -22,11 +22,14 @@ public class Map {
     
     
     private void init() {
-        mapList[0] = new Room("start", 1, "Welcome! There is a farm in front of you.");
-        mapList[1] = new Room("farm", 1, "Here is a farm!");
-        mapList[2] = new Room("village exit", 2, "There is a clear land in front of you. Or maybe would you like to attempt the dungeon...");
-        mapList[19] = new Room("fields", 1, "Here is the open world!");
-        mapList[3] = new Room("dungeon entry", 1, "You are in the dungeon.. Can't go back !");
+        mapList[0] = new Room("start", 1, false, false, "Welcome! There is a farm in front of you.");
+        mapList[1] = new Room("farm", 1, false, false, "Here is a farm!");
+        mapList[2] = new Room("village exit", 2, false, false, "There is a clear land in front of you. Or maybe would you like to attempt the dungeon...");
+        mapList[3] = new Room("dungeon entry", 1, false, true, "You are in the dungeon.. Can't go back ! There is an old man in the ground and a door in front of you.");
+        mapList[4] = new Room("first room", 1, false, false, "There is a very dark hole.. seems very deep.. Shall you continue or explore ?");
+        mapList[5] = new Room("dark room", 1, false, false, "It's very dark in here.. You are in a coal reserve.. You feel something with your feet..");
+        //mapList[6] = new Room("statue room", 2, )
+        mapList[19] = new Room("fields", 1, false, false, "Here is the open world!");
         
         linkAll();
     }
@@ -34,13 +37,16 @@ public class Map {
     
     private void linkAll() {
         /*  has to be done manualy :'(  */
-        backLinkRooms(0, 0);
+        backLinkRoom(0, 0);
         linkRoom(0, 1);
-        backLinkRooms(1, 0);
+        backLinkRoom(1, 0);
         linkRoom(1, 2);
-        backLinkRooms(2, 1);
-        linkRooms(2, 3, 4);
-        backLinkRooms(3, 2);
+        backLinkRoom(2, 1);
+        linkRooms(2, 3, 19);
+        backLinkRoom(3, 2);
+        backLinkRoom(19, 2);
+        linkRoom(3, 3);
+        linkRoom(19, 19);
     }
     
     
@@ -68,7 +74,7 @@ public class Map {
     }
     
     
-    private void backLinkRooms(int src, int dst) {
+    private void backLinkRoom(int src, int dst) {
         mapList[src].prec = mapList[dst];
     }
     

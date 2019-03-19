@@ -51,4 +51,17 @@ public class Human extends Entity {
         return coins;
     }
     
+    
+    public String getName(){
+        return name;
+    }
+    
+    public int att(int i){
+        return 0;
+    }
+    
+    public String[] getAttacks(){
+        return new String[] {};
+    }
+    
 }

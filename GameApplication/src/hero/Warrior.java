@@ -11,11 +11,17 @@ package hero;
  */
 public class Warrior extends Human {
     
+    private String[] attacks;
     
     public Warrior(int _hp, String _name){
         super(_hp,  _name);
         //setHp(300);
         setCoins(0);
         setMp(0);
+        attacks = new String[] {"sword"};
+    }
+    
+    public String[] getAttacks(){
+        return attacks;
     }
 }

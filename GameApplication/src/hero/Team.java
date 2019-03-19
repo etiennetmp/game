@@ -57,4 +57,9 @@ public class Team {
     public Human[] getTeamMembers(){
         return teamMembers;
     }
+    
+    
+    public int getTeamLength(){
+        return teamLength;
+    }
 }

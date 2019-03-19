@@ -16,6 +16,7 @@ public class Hero extends Human {
     private String spell;
     private boolean bow;
     private int numArrows, key;
+    private String[] attacks;
     
     public Hero(int _hp, String _name){
         super(_hp, _name);
@@ -26,7 +27,14 @@ public class Hero extends Human {
         bow = false;
         numArrows = 0;
         key = 0;
+        attacks = new String[] {"sword", "None"};
     }
+    
+    
+    public String[] getAttacks(){
+        return attacks;
+    }
+    
     
     public void setSpell(String spellName){
         spell = spellName;

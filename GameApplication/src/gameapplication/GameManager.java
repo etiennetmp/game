@@ -23,17 +23,7 @@ public class GameManager {
     private Team team;
     
     public GameManager() {
-        
-        /*System.out.println("Hello fellow adventurer, how may i call you?");
-        
-        Scanner sc = new Scanner(System.in);
-        String name = sc.nextLine();
-        System.out.println("OK " + name + ", what will be your team name?");
-        String teamName = sc.nextLine();
-        team = new Team(name, teamName);*/
-        
-        
-        map = new Map(5); //arg = nb of rooms
+        map = new Map(20); //arg = nb of rooms
         //playerPosition = 0;
         pos = map.getMapList()[0];
         run();
@@ -41,6 +31,7 @@ public class GameManager {
     
     public void run() {
         
+        names();
         while (true) {
             //pos = map.getMapList()[playerPosition];
             pos.display();
@@ -52,18 +43,38 @@ public class GameManager {
         }
     }
     
+    private void names() {
+        System.out.println("Hello fellow adventurer, how may i call you?");
+        
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println("OK " + name + ", what will be your team name?");
+        String teamName = sc.nextLine();
+        team = new Team(name, teamName);
+    }
+    
     private void playerMove(int x) {
         if (x == 0) {
             if (pos.getName() == "start")
-                System.out.println("Exception");
-            else
+                System.out.println("Input is too low");
+            else {
                 pos = pos.getPrec();
+                clearConsole();
+            }
         }
         else
-            pos = pos.getAdj()[x-1];        
+            if (x > pos.getAdj().length)
+                System.out.println("Input is too high");
+            else {
+                pos = pos.getAdj()[x-1];
+                clearConsole();
+            }
     }
     
-    public Team getTeam(){
-        return team;
+    public Team getTeam(){ return team; }
+    
+    public final static void clearConsole() {
+        System.out.print("\033[H\033[2J");
     }
+
 }

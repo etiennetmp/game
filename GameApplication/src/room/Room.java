@@ -23,9 +23,11 @@ public class Room {
     }
     
     public void display() {
-        System.out.println(desc);
+        System.out.println(desc+"\n=============================================");
+        if (name != "start")
+            System.out.println("0 : go back");
         for (int i = 0; i < adj.length; i++) {
-            System.out.println((i+1)+":"+adj[i].name);
+            System.out.println((i+1)+" : "+adj[i].name);
         }
     }
     

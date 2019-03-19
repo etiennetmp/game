@@ -25,7 +25,13 @@ public class GameManager {
     
     public GameManager() {
         
-        team = new Team("me", "mygroup");
+        System.out.println("Hello fellow adventurer, how may i call you?");
+        
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println("OK " + name + ", what will be your team name?");
+        String teamName = sc.nextLine();
+        team = new Team(name, teamName);
         
         
         map = new Map(4);

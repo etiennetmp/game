@@ -15,7 +15,7 @@ public class Room {
     String desc, name;
     int[] itemList; //change type
     int[] enttList; //change type
-    boolean lockFront, lockRear;
+    boolean lockFront, lockRear, cbt;
     
     /**
      *
@@ -34,7 +34,7 @@ public class Room {
     }
     
     /**
-     *
+     * Display descriptions of current map and names of next maps
      */
     public void display() {
         System.out.println(desc+"\n=============================================");

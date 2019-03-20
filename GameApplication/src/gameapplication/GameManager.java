@@ -5,6 +5,8 @@
  */
 package gameapplication;
 import room.*;
+import fights.*;
+import hero.*;
 import java.util.Scanner;
 
 import hero.*;
@@ -51,6 +53,7 @@ public class GameManager {
         System.out.println("OK " + name + ", what will be your team name?");
         String teamName = sc.nextLine();
         team = new Team(name, teamName);
+        fight ffight = new fight(new Entity[]{new Goblin(70)}, new int[]{1}, team);
     }
     
     private void playerMove(int x) {

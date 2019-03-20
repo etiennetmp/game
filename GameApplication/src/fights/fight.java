@@ -40,24 +40,27 @@ public class fight {
         else
             System.out.println(" is entering a fight! How will he handle it?");
         
+        updateFight(ennemies, numbers);
         
         do {
-            updateFight(ennemies, numbers);
+            
             
             System.out.println("Who do you want to attack?");
-            
-            Scanner sc = new Scanner(System.in);
-            String e = sc.nextLine();
-            
+                        
             for(int i = 0; i < ennemies.length; ++i)
             {
                 System.out.println((i+1) + ": " + ennemies[i].getType());
             }
             
-
+            Scanner sc = new Scanner(System.in);
+            String e = sc.nextLine();
             
             attack((int)e.charAt(0) - 49);
-            takeDmg();
+            
+            if(opponentNumber != 0)
+                takeDmg();
+            
+            updateFight(ennemies, numbers);
         }
         while(opponentNumber != 0);
         
@@ -65,32 +68,45 @@ public class fight {
     
     private void attack(int ennemi){
         
-        System.out.println("Who will attack?");
-        
-        for(int i = 0; i < team.getTeamLength(); ++i)
-        {
-            System.out.println((i+1) + ": " 
-                    + team.getTeamMembers()[i].getName());
-        }
-        
         int at;
         
         do{
-        Scanner sc = new Scanner(System.in);
-        String a = sc.nextLine();
-        Human attacker = team.getTeamMembers()[(int)a.charAt(0) - 49];
+            System.out.println("Who will attack?");
         
-        String[] attacks = attacker.getAttacks();
-        for(int i = 0; i < attacks.length; ++i)
+            for(int i = 0; i < team.getTeamLength(); ++i)
+            {
+                System.out.println((i+1) + ": " 
+                        + team.getTeamMembers()[i].getName());
+            }
+
+
+            Scanner sc = new Scanner(System.in);
+            String a = sc.nextLine();
+            Human attacker = team.getTeamMembers()[(int)a.charAt(0) - 49];
+
+            String[] attacks = attacker.getAttacks();
+            for(int i = 0; i < attacks.length; ++i)
+            {
+                System.out.println((i+1) + ": " + attacks[i]);
+            }
+
+            a = sc.nextLine();
+            at = attacker.att((int)a.charAt(0) - 49);
+            if(at == 0)
+                System.out.println("You can not attack with that, "
+                        + "try something else");
+        }while(at == 0);
+        
+        if(numbers[ennemi] != 0 && 
+                ennemies[ennemi].getHp() - at/numbers[ennemi] > 0)
+            
+            ennemies[ennemi].setHp(ennemies[ennemi].getHp() 
+                    - at/numbers[ennemi]);
+        else
         {
-            System.out.println((i+1) + ": " + attacks[i]);
+            ennemies[ennemi].setHp(0);
+            numbers[ennemi] = 0;
         }
-        
-        a = sc.nextLine();
-        at = attacker.att((int)a.charAt(0) - 49);
-        }while(at != 0);
-        
-        ennemies[ennemi].setHp(ennemies[ennemi].getHp() - at/numbers[ennemi]);
         
     }
     
@@ -103,9 +119,14 @@ public class fight {
         }
         
         for(int i = 0; i < tl; ++i){            
-            team.getTeamMembers()[i].setHp(team.getTeamMembers()[i].getHp() 
+            if(team.getTeamMembers()[i].getHp() - dmg/tl > 0)
+                team.getTeamMembers()[i].setHp(team.getTeamMembers()[i].getHp() 
                     - dmg/tl);
+            else
+                team.getTeamMembers()[i].setHp(0);
         }
+        
+        
         
     }
     

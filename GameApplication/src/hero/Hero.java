@@ -39,7 +39,10 @@ public class Hero extends Human {
         if(i == 0)
             return 30;
         else if(i == 1 && getMp() >= spellCost)
+        {            
+            setMp(getMp() - spellCost);
             return spellDmg;
+        }
                 
         return 0;
     }
@@ -85,5 +88,13 @@ public class Hero extends Human {
     
     public void setKey(int k){
         key = k;
+    }
+    
+    public int getSpellDmg(){
+        return spellDmg;
+    }
+    
+    public int getSpellCost(){
+        return spellCost;
     }
 }

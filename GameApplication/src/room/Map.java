@@ -52,7 +52,7 @@ public class Map {
         linkRooms(4, 5, 6);
         linkRoom(6, 7);
         linkRoom(7, 8);
-        linkRoom(8, 2);
+        mapList[8].adj[0] = mapList[2];
         linkRoom(19, 19);
     }
     

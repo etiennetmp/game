@@ -52,12 +52,19 @@ public class Hero extends Human {
     public int att(int i){
         if(i == 0)
             return 30;
+        
         else if(i == 1 && getMp() >= spellCost)
         {            
             setMp(getMp() - spellCost);
             return spellDmg;
         }
-                
+        
+        else if(i == 2 && bow && numArrows != 0)
+        {
+            --numArrows;
+            
+        }
+        
         return 0;
     }
     

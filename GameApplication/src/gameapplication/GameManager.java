@@ -42,7 +42,9 @@ public class GameManager {
         names();
         while (true) {
             if (pos.isCbt())
-                new fight(new Entity[]{new Goblin(70)}, new int[]{1}, team);
+                new fight(new Entity[]{new Goblin(75), new Zombie(30)}, 
+                        new int[]{1, 2}, team);
+            
             pos.display();
             
             Scanner sc = new Scanner(System.in);

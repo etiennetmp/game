@@ -14,7 +14,7 @@ package hero;
 public class Hero extends Human {
     
     private boolean bow;
-    private int numArrows, key, spellDmg, spellCost;
+    private int numArrows, key, spellDmg, spellCost, arrowDmg;
     private String[] attacks;
     
     /**
@@ -34,6 +34,7 @@ public class Hero extends Human {
             "Not unlocked yet"};
         spellDmg = 0;
         spellCost = 200;
+        arrowDmg = 35;
     }
     
     /**
@@ -52,12 +53,19 @@ public class Hero extends Human {
     public int att(int i){
         if(i == 0)
             return 30;
+        
         else if(i == 1 && getMp() >= spellCost)
         {            
             setMp(getMp() - spellCost);
             return spellDmg;
         }
-                
+        
+        else if(i == 2 && bow && numArrows != 0)
+        {
+            --numArrows;
+            return arrowDmg;
+        }
+        
         return 0;
     }
     
@@ -115,8 +123,8 @@ public class Hero extends Human {
      *
      * @return
      */
-    public boolean hasKey(){
-        return key != 0;
+    public int getKey(){
+        return key;
     }
     
     /**

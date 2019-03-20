@@ -30,7 +30,8 @@ public class Hero extends Human {
         bow = false;
         numArrows = 0;
         key = 0;
-        attacks = new String[] {"sword Dmg: 30", "Not unlocked yet"};
+        attacks = new String[] {"sword Dmg: 30", "Not unlocked yet", 
+            "Not unlocked yet"};
         spellDmg = 0;
         spellCost = 200;
     }

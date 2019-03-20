@@ -125,10 +125,21 @@ public class fight {
         
         for(int i = 0; i < tl; ++i){            
             if(team.getTeamMembers()[i].getHp() - dmg/tl > 0)
+            {
                 team.getTeamMembers()[i].setHp(team.getTeamMembers()[i].getHp() 
                     - dmg/tl);
+                System.out.println(team.getTeamMembers()[i].getName() + " has "
+                        + team.getTeamMembers()[i].getHp() + " HP and " 
+                        + team.getTeamMembers()[i].getMp() + " MP.");
+            }
             else
+            {
                 team.getTeamMembers()[i].setHp(0);
+                System.out.println(team.getTeamMembers()[i].getName() 
+                        + " IS DEAD WHAT HAVE YOU DONE ??!");
+            }
+            
+            
         }
         
         

@@ -41,7 +41,8 @@ public class GameManager {
         
         names();
         while (true) {
-            //pos = map.getMapList()[playerPosition];
+            if (pos.isCbt())
+                new fight(new Entity[]{new Goblin(70)}, new int[]{1}, team);
             pos.display();
             
             Scanner sc = new Scanner(System.in);
@@ -59,7 +60,6 @@ public class GameManager {
         System.out.println("OK " + name + ", what will be your team name?");
         String teamName = sc.nextLine();
         team = new Team(name, teamName);
-        fight ffight = new fight(new Entity[]{new Goblin(70)}, new int[]{1}, team);
     }
     
     private void playerMove(int x) {

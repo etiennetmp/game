@@ -25,11 +25,12 @@ public class Room {
      * @param _lockR
      * @param _desc
      */
-    public Room(String _name, int size, boolean _lockF, boolean _lockR, String _desc) {
+    public Room(String _name, int size, boolean _lockF, boolean _lockR, boolean _cbt, String _desc) {
         name = _name;
         adj = new Room[size];
         lockFront = _lockF;
         lockRear = _lockR;
+        cbt = _cbt;
         desc = _desc;
     }
     
@@ -74,6 +75,16 @@ public class Room {
      * @return
      */
     public boolean getLockF() { return lockFront; }
+    
+    /**
+     *
+     * @return
+     */
+    public boolean isCbt() {
+        boolean res = cbt;
+        cbt = false;
+        return res;
+    }
     
     /**
      *

@@ -120,7 +120,7 @@ public class fight {
         int tl = team.getTeamLength();
         
         for(int i = 0; i < ennemies.length; ++i){
-            dmg += ennemies[i].getDmg() * i;
+            dmg += ennemies[i].getDmg() * numbers[i];
         }
         
         for(int i = 0; i < tl; ++i){            
@@ -128,6 +128,7 @@ public class fight {
             {
                 team.getTeamMembers()[i].setHp(team.getTeamMembers()[i].getHp() 
                     - dmg/tl);
+                
                 System.out.println(team.getTeamMembers()[i].getName() + " has "
                         + team.getTeamMembers()[i].getHp() + " HP and " 
                         + team.getTeamMembers()[i].getMp() + " MP.");

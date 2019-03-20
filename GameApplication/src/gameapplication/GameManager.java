@@ -24,6 +24,9 @@ public class GameManager {
     
     private Team team;
     
+    /**
+     *
+     */
     public GameManager() {
         map = new Map(20); //arg = nb of rooms
         //playerPosition = 0;
@@ -31,6 +34,9 @@ public class GameManager {
         run();
     }
     
+    /**
+     *
+     */
     public void run() {
         
         names();
@@ -82,8 +88,15 @@ public class GameManager {
             }
     }
     
+    /**
+     *
+     * @return
+     */
     public Team getTeam(){ return team; }
     
+    /**
+     *
+     */
     public final static void clearConsole() {
         System.out.print("\033[H\033[2J");
     }

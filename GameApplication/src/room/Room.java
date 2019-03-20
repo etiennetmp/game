@@ -17,6 +17,14 @@ public class Room {
     int[] enttList; //change type
     boolean lockFront, lockRear;
     
+    /**
+     *
+     * @param _name
+     * @param size
+     * @param _lockF
+     * @param _lockR
+     * @param _desc
+     */
     public Room(String _name, int size, boolean _lockF, boolean _lockR, String _desc) {
         name = _name;
         adj = new Room[size];
@@ -25,6 +33,9 @@ public class Room {
         desc = _desc;
     }
     
+    /**
+     *
+     */
     public void display() {
         System.out.println(desc+"\n=============================================");
         if (name != "start")
@@ -34,12 +45,39 @@ public class Room {
         }
     }
     
+    /**
+     *
+     * @return
+     */
     public Room[] getAdj() { return adj; }
+
+    /**
+     *
+     * @return
+     */
     public String getName() { return name; }
+
+    /**
+     *
+     * @return
+     */
     public Room getPrec() { return prec; }
+
+    /**
+     *
+     * @return
+     */
     public boolean getLockR() { return lockRear; }
+
+    /**
+     *
+     * @return
+     */
     public boolean getLockF() { return lockFront; }
     
+    /**
+     *
+     */
     public void printDirections() {
         System.out.print("["+adj[0].name);
         for (int i = 1; i < adj.length; i++)

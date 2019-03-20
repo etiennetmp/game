@@ -15,6 +15,11 @@ public class Team {
     private String teamName;
     private int teamLength;
     
+    /**
+     *
+     * @param heroName
+     * @param _teamName
+     */
     public Team(String heroName, String _teamName){
         
         teamLength = 0;
@@ -23,6 +28,11 @@ public class Team {
         teamName = _teamName;
     }
     
+    /**
+     *
+     * @param style
+     * @param memberName
+     */
     public void addMember(String style, String memberName){
         
         if(style == "Hero")
@@ -38,6 +48,10 @@ public class Team {
             System.out.println("unknown member class");
     }
     
+    /**
+     *
+     * @return
+     */
     public int getTeamCoins(){
         int c = 0;
         
@@ -48,17 +62,26 @@ public class Team {
         return c;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public String getTeamName(){
         return teamName;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public Human[] getTeamMembers(){
         return teamMembers;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public int getTeamLength(){
         return teamLength;
     }

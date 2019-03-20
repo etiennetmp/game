@@ -13,15 +13,27 @@ public class Goblin extends Entity {
     
     private int dmg;
     
+    /**
+     *
+     * @param _hp
+     */
     public Goblin(int _hp){
         super(_hp);
         dmg = 7;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getType(){
         return "Goblin";
     }
     
+    /**
+     *
+     * @return
+     */
     public int getDmg(){
         return dmg;
     }

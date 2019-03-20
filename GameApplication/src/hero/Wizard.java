@@ -15,6 +15,11 @@ public class Wizard extends Human {
     private int fireDmg;
     private int iceDmg;
     
+    /**
+     *
+     * @param _hp
+     * @param _name
+     */
     public Wizard(int _hp, String _name){
         super(_hp, _name);
         //setHp(100);
@@ -26,18 +31,35 @@ public class Wizard extends Human {
         iceDmg = 65;
     }
     
+    /**
+     *
+     * @return
+     */
     public String[] getAttacks(){
         return attacks;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getFireDmg(){
         return fireDmg;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getIceDmg(){
         return iceDmg;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int att(int i){
         if(i == 0 && getMp() >= 100)
         {

@@ -17,6 +17,11 @@ public class Hero extends Human {
     private int numArrows, key, spellDmg, spellCost;
     private String[] attacks;
     
+    /**
+     *
+     * @param _hp
+     * @param _name
+     */
     public Hero(int _hp, String _name){
         super(_hp, _name);
         //setHp(200);
@@ -30,11 +35,19 @@ public class Hero extends Human {
         spellCost = 200;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public String[] getAttacks(){
         return attacks;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int att(int i){
         if(i == 0)
             return 30;
@@ -47,7 +60,10 @@ public class Hero extends Human {
         return 0;
     }
     
-    
+    /**
+     *
+     * @param spellName
+     */
     public void setSpell(int spellName){
         if(spellName == 0)
         {
@@ -63,37 +79,65 @@ public class Hero extends Human {
         }
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public boolean hasBow(){
         return bow;
     }
     
+    /**
+     *
+     */
     public void obtainBow(){
         bow = true;
     }
     
-    
+    /**
+     *
+     * @param arrows
+     */
     public void setNumArrows(int arrows){
         numArrows = arrows;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getNumArrows(){
         return numArrows;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public boolean hasKey(){
         return key != 0;
     }
     
+    /**
+     *
+     * @param k
+     */
     public void setKey(int k){
         key = k;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getSpellDmg(){
         return spellDmg;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getSpellCost(){
         return spellCost;
     }

@@ -14,6 +14,12 @@ public class GameApplication {
     /*
      * @param args the command line arguments
      */
+
+    /**
+     *
+     * @param args
+     */
+
     public static void main(String[] args) {
         GameManager gm = new GameManager();
     }

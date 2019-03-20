@@ -20,7 +20,12 @@ public class fight {
     private Team team;
     //private Human[] teamMembers;
     
-    
+    /**
+     *
+     * @param _ennemies
+     * @param _numbers
+     * @param _team
+     */
     public fight(Entity[] _ennemies, int[] _numbers, Team _team){
         ennemies = _ennemies;
         numbers = _numbers;

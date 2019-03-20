@@ -13,23 +13,42 @@ public class Entity {
     
     private int hp;
     
+    /**
+     *
+     * @param _hp
+     */
     public Entity(int _hp){
         hp = _hp;
     }
     
-    
+    /**
+     *
+     * @param newHp
+     */
     public void setHp(int newHp){
         hp = newHp;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getHp(){
         return hp;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getType(){
         return "None";
     }
     
+    /**
+     *
+     * @return
+     */
     public int getDmg(){
         return 0;
     }

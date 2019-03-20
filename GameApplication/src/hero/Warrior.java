@@ -13,6 +13,11 @@ public class Warrior extends Human {
     
     private String[] attacks;
     
+    /**
+     *
+     * @param _hp
+     * @param _name
+     */
     public Warrior(int _hp, String _name){
         super(_hp,  _name);
         //setHp(300);
@@ -21,10 +26,19 @@ public class Warrior extends Human {
         attacks = new String[] {"sword Dmg: 40"};
     }
     
+    /**
+     *
+     * @return
+     */
     public String[] getAttacks(){
         return attacks;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int att(int i){
         if(i == 0)
             return 40;

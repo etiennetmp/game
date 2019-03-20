@@ -14,6 +14,10 @@ public class Map {
     private Room[] mapList;
     private int nbRooms;
     
+    /**
+     *
+     * @param _nbRooms
+     */
     public Map(int _nbRooms) {
         nbRooms = _nbRooms;
         mapList = new Room[nbRooms];
@@ -78,7 +82,9 @@ public class Map {
         mapList[src].prec = mapList[dst];
     }
     
-    
+    /**
+     *
+     */
     public void display() {
         
         for (int i = 0; i < nbRooms; i++) {
@@ -88,6 +94,9 @@ public class Map {
         }
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public Room[] getMapList() { return mapList; }
 }

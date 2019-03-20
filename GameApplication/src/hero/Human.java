@@ -14,7 +14,11 @@ public class Human extends Entity {
     private int mp, coins;
     private String name;
     
-    
+    /**
+     *
+     * @param _hp
+     * @param _name
+     */
     public Human(int _hp, String _name){
         super(_hp);
         name = _name;
@@ -33,33 +37,59 @@ public class Human extends Entity {
     }
     */
     
-    
+    /**
+     *
+     * @param newMp
+     */
     public void setMp(int newMp){
         mp = newMp;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getMp(){
         return mp;
     }
     
-        
+    /**
+     *
+     * @param newCoins
+     */
     public void setCoins(int newCoins){
         coins = newCoins;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getCoins(){
         return coins;
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public String getName(){
         return name;
     }
     
+    /**
+     *
+     * @param i
+     * @return
+     */
     public int att(int i){
         return 0;
     }
     
+    /**
+     *
+     * @return
+     */
     public String[] getAttacks(){
         return new String[] {};
     }

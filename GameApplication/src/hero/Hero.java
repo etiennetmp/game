@@ -13,9 +13,9 @@ package hero;
  */
 public class Hero extends Human {
     
-    private boolean bow;
-    private int numArrows, key, spellDmg, spellCost, arrowDmg;
-    private String[] attacks;
+    private boolean bow, spell;
+    private int numArrows, key, spellDmg, spellCost, arrowDmg, swordDmg;
+    private String spellName;
     
     /**
      *
@@ -30,11 +30,12 @@ public class Hero extends Human {
         bow = false;
         numArrows = 0;
         key = 0;
-        attacks = new String[] {"sword Dmg: 30", "Not unlocked yet", 
-            "Not unlocked yet"};
         spellDmg = 0;
         spellCost = 200;
+        spellName = "None";
         arrowDmg = 35;
+        swordDmg = 30;
+        spell = false;
     }
     
     /**
@@ -42,7 +43,11 @@ public class Hero extends Human {
      * @return
      */
     public String[] getAttacks(){
-        return attacks;
+        return new String[]{"sword Dmg: " + swordDmg,
+                spell ? spellName + "Dmg: " + spellDmg + " Mana cost: " 
+                + spellCost : "Not unlocked yet",
+                bow ? "Bow    Arrows left: " + numArrows + " Dmg: " + arrowDmg 
+                : "Not unlocked yet"};
     }
     
     /**
@@ -73,19 +78,23 @@ public class Hero extends Human {
      *
      * @param spellName
      */
-    public void setSpell(int spellName){
-        if(spellName == 0)
+    public void setSpell(int sName){
+        if(sName == 0)
         {
-            attacks[2] = "fire Dmg: 75   Mana Cost: 50";
+            spellName = "Fire";
             spellDmg = 75;
             spellCost = 50;
         }
-        else
+        else if(sName == 1)
         {
-            attacks[2] = "ice Dmg: 40   Mana Cost: 25";
+            spellName = "Ice";
             spellDmg = 40;
             spellCost = 25;
         }
+        else
+            return;
+        
+        spell = true;
     }
     
     /**

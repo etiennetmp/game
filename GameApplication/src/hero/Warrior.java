@@ -11,7 +11,7 @@ package hero;
  */
 public class Warrior extends Human {
     
-    private String[] attacks;
+    private int swordDmg;
     
     /**
      *
@@ -23,7 +23,7 @@ public class Warrior extends Human {
         //setHp(300);
         setCoins(0);
         setMp(0);
-        attacks = new String[] {"sword Dmg: 40"};
+        swordDmg = 40;
     }
     
     /**
@@ -31,7 +31,7 @@ public class Warrior extends Human {
      * @return
      */
     public String[] getAttacks(){
-        return attacks;
+        return new String[] {"Sword Dmg: " + swordDmg};
     }
     
     /**
@@ -41,7 +41,7 @@ public class Warrior extends Human {
      */
     public int att(int i){
         if(i == 0)
-            return 40;
+            return swordDmg;
                 
         return 0;
     }

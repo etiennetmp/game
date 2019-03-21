@@ -9,25 +9,25 @@ package hero;
  *
  * @author atomesz
  */
-public class Zombie extends Entity{
-
-    private int myDmg = 8;
-    private int myHp = 40;
+public class Troll extends Entity{
+    
+    private int myDmg = 5;
+    private int myHp = 75;
     /**
      *
      * @param _hp
      */
-    public Zombie(int _hp){
+    public Troll(int _hp){
         super(_hp);
         setDmg(myDmg);
     }
     
-    public Zombie(){
+    public Troll(){
         setHp(myHp);
         setDmg(myDmg);
     }
     
-    public Zombie(int _hp, int _dmg){
+    public Troll(int _hp, int _dmg){
         super(_hp, _dmg);
     }
     
@@ -36,7 +36,6 @@ public class Zombie extends Entity{
      * @return
      */
     public String getType(){
-        return "Zombie";
+        return "Troll";
     }
-    
 }

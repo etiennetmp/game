@@ -49,45 +49,56 @@ public class fight {
         updateFight(ennemies, numbers);
         
         int ei;
+        int totalAttacker = 0;
+        for(int i = 0; i < team.getTeamLength(); ++i)
+        {
+            if(team.getTeamMembers()[i].getHp() != 0)
+                ++totalAttacker;
+        }
+        
         do {
             
             boolean unattackable;
             do{
-                
-                System.out.println("Who do you want to attack?");
+                do{
 
-                for(int i = 0; i < ennemies.length; ++i)
-                {
-                    System.out.println((i+1) + ": " + ennemies[i].getType());
-                }
+                    System.out.println("Who do you want to attack?");
 
-
-
-                String e = sc.nextLine();
-                ei = (int)e.charAt(0) - 49;
-                if(ei < 0 || ei >= ennemies.length || ennemies[ei].getHp() == 0)
-                {
-                    if(!(ei < 0 || ei >= ennemies.length))
+                    for(int i = 0; i < ennemies.length; ++i)
                     {
-                        System.out.print("This " + ennemies[ei].getType() 
-                                + " is already dead, stop bullying him! ");
+                        System.out.println((i+1) + ": " + ennemies[i].getType());
                     }
-                    
+
+
+
+                    String e = sc.nextLine();
+                    ei = (int)e.charAt(0) - 49;
+                    if(ei < 0 || ei >= ennemies.length || ennemies[ei].getHp() == 0)
+                    {
+                        if(!(ei < 0 || ei >= ennemies.length))
+                        {
+                            System.out.print("This " + ennemies[ei].getType() 
+                                    + " is already dead, stop bullying him! ");
+                        }
+
+                        else
+                            System.out.print("There is no such opponent. ");
+
+                        unattackable = true;
+                    }
                     else
-                        System.out.print("There is no such opponent. ");
-                    
-                    unattackable = true;
-                }
-                else
-                    unattackable = false;
-                
-            }while(unattackable);
-            attack(ei);
+                        unattackable = false;
+
+                }while(unattackable);
+                attack(ei);
+                --totalAttacker;
+                updateFight(ennemies, numbers);
+            }while(totalAttacker > 0);
             
             if(opponentNumber != 0)
                 takeDmg();
             
-            updateFight(ennemies, numbers);
+            //updateFight(ennemies, numbers);
         }
         while(opponentNumber != 0);
         
@@ -98,9 +109,11 @@ public class fight {
         int at;
         Scanner sc = new Scanner(System.in);
         
+        
         do{
             int atta;
             boolean cantAttack;
+            
             do{
                 
                 System.out.println("Who will attack?");
@@ -130,7 +143,9 @@ public class fight {
                     
                 }
                 else
+                {
                     cantAttack = false;
+                }
                 
             }while(cantAttack);
             
@@ -162,6 +177,8 @@ public class fight {
             ennemies[ennemi].setHp(0);
             numbers[ennemi] = 0;
         }
+        
+    
         
     }
     
@@ -199,7 +216,7 @@ public class fight {
         opponentNumber = 0;
         
         for(int i = 0; i < ennemies.length; ++i){
-            System.out.println("a level " + numbers[i] + " " 
+            System.out.println((i == 0 ? "a" : "A") +" level " + numbers[i] + " " 
                     + ennemies[i].getType() + ". HP: " 
                     + (ennemies[i].getHp()*numbers[i]) + ". Dmg: "
                     + (ennemies[i].getDmg()*numbers[i]));
@@ -207,7 +224,7 @@ public class fight {
             opponentNumber += numbers[i];
         }
         
-        System.out.print("This is like a total of " + opponentNumber 
+        System.out.print("\nThis is like a total of " + opponentNumber 
                 + " level 1");
         
         if(opponentNumber > 1)
@@ -217,6 +234,6 @@ public class fight {
             System.out.println(" ennemy, come on he is alone just rekt him!");
         
         else
-            System.out.println(" ennemy, you did it! Good Job!");
+            System.out.println(" ennemy, you did it! Good Job!\n");
     }
 }

@@ -11,7 +11,8 @@ package hero;
  */
 public class Entity {
     
-    private int hp;
+    private int hp = 0;
+    private int dmg = 0;
     
     /**
      *
@@ -21,12 +22,32 @@ public class Entity {
         hp = _hp;
     }
     
+    
+    public Entity(){
+        
+    }
+    
+    public Entity(int _hp, int _dmg){
+        hp = _hp;
+        dmg = _dmg;
+    }
+    
     /**
      *
      * @param newHp
      */
     public void setHp(int newHp){
         hp = newHp;
+    }
+    
+    
+    public void setDmg(int newDmg){
+        dmg = newDmg;
+    }
+    
+    
+    public int getDmg(){
+        return dmg;
     }
     
     /**
@@ -45,11 +66,4 @@ public class Entity {
         return "None";
     }
     
-    /**
-     *
-     * @return
-     */
-    public int getDmg(){
-        return 0;
-    }
 }

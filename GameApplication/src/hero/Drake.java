@@ -11,15 +11,24 @@ package hero;
  */
 public class Drake extends Entity {
     
-    private int dmg;
-    
+    private int myDmg = 30;
+    private int myHp = 200;
     /**
      *
      * @param _hp
      */
     public Drake(int _hp){
         super(_hp);
-        dmg = 30;
+        setDmg(myDmg);
+    }
+    
+    public Drake(){
+        setHp(myHp);
+        setDmg(myDmg);
+    }
+    
+    public Drake(int _hp, int _dmg){
+        super(_hp, _dmg);
     }
     
     /**
@@ -28,13 +37,5 @@ public class Drake extends Entity {
      */
     public String getType(){
         return "Drake";
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public int getDmg(){
-        return dmg;
     }
 }

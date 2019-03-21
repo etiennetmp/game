@@ -11,15 +11,24 @@ package hero;
  */
 public class Goblin extends Entity {
     
-    private int dmg;
-    
+    private int myDmg = 5;
+    private int myHp = 20;
     /**
      *
      * @param _hp
      */
     public Goblin(int _hp){
         super(_hp);
-        dmg = 7;
+        setDmg(myDmg);
+    }
+    
+    public Goblin(){
+        setHp(myHp);
+        setDmg(myDmg);
+    }
+    
+    public Goblin(int _hp, int _dmg){
+        super(_hp, _dmg);
     }
     
     /**
@@ -28,13 +37,5 @@ public class Goblin extends Entity {
      */
     public String getType(){
         return "Goblin";
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public int getDmg(){
-        return dmg;
     }
 }

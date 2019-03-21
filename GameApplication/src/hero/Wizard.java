@@ -11,9 +11,7 @@ package hero;
  */
 public class Wizard extends Human {
     
-    private String[] attacks;
-    private int fireDmg;
-    private int iceDmg;
+    private int fireDmg, iceDmg, fireCost, iceCost;
     
     /**
      *
@@ -25,9 +23,9 @@ public class Wizard extends Human {
         //setHp(100);
         setCoins(10);
         setMp(300);
-        attacks = new String[] {"fire Dmg: 120   Mana Cost: 100", 
-            "ice Dmg: 65   Mana Cost: 60"};
         fireDmg = 120;
+        fireCost = 100;
+        iceCost = 60;
         iceDmg = 65;
     }
     
@@ -36,7 +34,8 @@ public class Wizard extends Human {
      * @return
      */
     public String[] getAttacks(){
-        return attacks;
+        return new String[]{"Fire Dmg: " + fireDmg + " Mana cost: " + fireCost,
+                            "Ice Dmg: " + iceDmg + " Mana cost: " + iceCost};
     }
     
     /**
@@ -61,15 +60,15 @@ public class Wizard extends Human {
      * @return
      */
     public int att(int i){
-        if(i == 0 && getMp() >= 100)
+        if(i == 0 && getMp() >= fireCost)
         {
-            setMp(getMp() - 100);
+            setMp(getMp() - fireCost);
             return fireDmg;
         }
         
-        else if(getMp() >= 60)
+        else if(getMp() >= iceCost)
         {
-            setMp(getMp() - 60);
+            setMp(getMp() - iceCost);
             return iceDmg;
         }
                 

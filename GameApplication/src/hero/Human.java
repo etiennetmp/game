@@ -94,4 +94,8 @@ public class Human extends Entity {
         return new String[] {};
     }
     
+    public void setSpell(int spel){
+        
+    }
+    
 }

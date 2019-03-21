@@ -53,7 +53,6 @@ public class Map {
         linkRoom(6, 7);
         linkRoom(7, 8);
         mapList[8].adj[0] = mapList[2];
-        linkRoom(19, 19);
     }
     
     

@@ -32,18 +32,33 @@ public class Room {
         lockRear = _lockR;
         cbt = _cbt;
         desc = _desc;
+        itemList = new int[0];
+        enttList = new int[0];
     }
+    
+    public void addItem() {
+        itemList = new int[1];
+    }
+    
     
     /**
      * Display descriptions of current map and names of next maps
      */
     public void display() {
+        
         System.out.println(desc+"\n=============================================");
+        
         if (name != "start")
             System.out.println("0 : go back");
-        for (int i = 0; i < adj.length; i++) {
+        
+        for (int i = 0; i < adj.length; i++)
             System.out.println((i+1)+" : "+adj[i].name);
-        }
+        
+        for (int i = 0; i+1 < enttList.length; i++)
+            System.out.println((i+enttList.length+1)+" : "+enttList[i]);
+        
+        for (int i = 0; i+1 < itemList.length; i++)
+            System.out.println((i+adj.length+enttList.length+1)+" : "+itemList[i]);
     }
     
     /**

@@ -98,4 +98,24 @@ public class Human extends Entity {
         
     }
     
+    public void obtainBow(){
+
+    }
+    
+    /**
+     *
+     * @param arrows
+     */
+    public void setNumArrows(int arrows){
+
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public int getNumArrows(){
+        return 0;
+    }
+    
 }

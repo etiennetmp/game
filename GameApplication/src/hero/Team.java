@@ -49,7 +49,7 @@ public class Team {
             teamMembers[teamLength++] = new Warrior(300, memberName);
         
         else
-            System.out.println("unknown member class");
+            System.out.println("Unknown member class");
     }
     
     
@@ -62,10 +62,12 @@ public class Team {
             Scanner sc = new Scanner(System.in);
 
             do{
-                System.out.println(teamMembers[1].getName() + ": I can teach you a spell, what do you want?");
+                System.out.println(teamMembers[1].getName() 
+                        + ": I can teach you a spell, what do you want?");
                 System.out.println("1: Fire Dmg: 75  Mana cost: 50");
                 System.out.println("2: Ice Dmg: 40  Mana cost: 25");
-                System.out.println("3: I hate studies, i'll keep going as a swordman!");
+                System.out.println("3: I hate studies, "
+                        + "i'll keep going as a swordman!");
 
                 String s = sc.nextLine();
 
@@ -114,6 +116,8 @@ public class Team {
         System.out.println("A Wizard just appeared, can he join your team?");
         int si;
         Scanner sc = new Scanner(System.in); 
+        teamMembers[0].obtainBow();
+        teamMembers[0].setNumArrows(5);
         
         do{
             System.out.println("1: Heck yes!");

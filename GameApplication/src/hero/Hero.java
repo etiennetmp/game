@@ -112,6 +112,7 @@ public class Hero extends Human {
      */
     public void obtainBow(){
         bow = true;
+        System.out.println("You just picked up a bow!");
     }
     
     /**
@@ -120,6 +121,7 @@ public class Hero extends Human {
      */
     public void setNumArrows(int arrows){
         numArrows = arrows;
+        System.out.println("You now have " + numArrows + " arrows.");
     }
     
     /**

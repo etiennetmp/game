@@ -96,11 +96,31 @@ public class fight {
             }while(totalAttacker > 0);
             
             if(opponentNumber != 0)
+            {
                 takeDmg();
+                
+                int deads = 0;
+                
+                for(int i = 0; i < team.getTeamLength(); ++i){
+                    
+                    if(team.getTeamMembers()[i].getHp() == 0)
+                        ++deads;
+                }
+                
+                if(deads == team.getTeamLength())
+                {
+                    opponentNumber = 0;
+                    team.gameOver();
+                }
+            }
+            
             
             //updateFight(ennemies, numbers);
         }
         while(opponentNumber != 0);
+        
+        
+        
         
     }
     

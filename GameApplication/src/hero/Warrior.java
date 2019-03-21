@@ -11,7 +11,7 @@ package hero;
  */
 public class Warrior extends Human {
     
-    private int swordDmg;
+    private int swordDmg, mpMax, hpMax;
     
     /**
      *
@@ -21,9 +21,17 @@ public class Warrior extends Human {
     public Warrior(int _hp, String _name){
         super(_hp,  _name);
         //setHp(300);
+        hpMax = getHp();
+        mpMax = 0;
         setCoins(0);
-        setMp(0);
+        setMp(mpMax);
         swordDmg = 40;
+    }
+       
+    
+    public void heal(){
+        setHp(hpMax);
+        setMp(mpMax);
     }
     
     /**

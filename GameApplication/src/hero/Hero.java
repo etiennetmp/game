@@ -14,7 +14,7 @@ package hero;
 public class Hero extends Human {
     
     private boolean bow, spell;
-    private int numArrows, key, spellDmg, spellCost, arrowDmg, swordDmg;
+    private int numArrows, key, spellDmg, spellCost, arrowDmg, swordDmg, mpMax, hpMax;
     private String spellName;
     
     /**
@@ -26,7 +26,9 @@ public class Hero extends Human {
         super(_hp, _name);
         //setHp(200);
         setCoins(2);
-        setMp(100);
+        mpMax = 100;
+        hpMax = getHp();
+        setMp(mpMax);
         bow = false;
         numArrows = 0;
         key = 0;
@@ -99,6 +101,11 @@ public class Hero extends Human {
         spell = true;
     }
     
+    
+    public void heal(){
+        setHp(hpMax);
+        setMp(mpMax);
+    }
     /**
      *
      * @return

@@ -40,13 +40,14 @@ public class GameManager {
     public void run() {
         
         names();
-        while (true) {
+        while (team.isGameOn()) {
             
             if (pos == map.getMapList()[2])
                 initialTeam();
             
             pos.runCbt(team);
-            
+            if(!team.isGameOn())
+                break;
             pos.display();
             
             Scanner sc = new Scanner(System.in);

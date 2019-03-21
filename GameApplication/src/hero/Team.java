@@ -16,7 +16,7 @@ public class Team {
     private Human[] teamMembers;
     private String teamName;
     private int teamLength;
-    private boolean wiz;
+    private boolean wiz, gameOn;
     
     /**
      *
@@ -30,6 +30,7 @@ public class Team {
         addMember("Hero", heroName);
         teamName = _teamName;
         wiz = false;
+        gameOn = true;
     }
     
     /**
@@ -142,6 +143,24 @@ public class Team {
         }
         System.out.println("");
     }
+    
+    
+    public void regen(){
+        for(int i = 0; i < teamLength; ++i)
+        {
+            teamMembers[i].heal();
+        }
+    }
+    
+    public void gameOver(){
+        System.out.println("All the members of " + teamName + " are dead!");
+        gameOn = false;
+    }
+    
+    public boolean isGameOn(){
+        return gameOn;
+    }
+    
     /**
      *
      * @return

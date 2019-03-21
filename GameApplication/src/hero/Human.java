@@ -36,7 +36,11 @@ public class Human extends Entity {
         System.out.println("You can not cast this spell");
     }
     */
+     
     
+    public void heal(){
+
+    }
     /**
      *
      * @param newMp

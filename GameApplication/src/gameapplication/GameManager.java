@@ -28,7 +28,7 @@ public class GameManager {
      *
      */
     public GameManager() {
-        map = new Map(20); //arg = nb of rooms
+        map = new Map(11); //arg = nb of rooms
         //playerPosition = 0;
         pos = map.getMapList()[0];
         run();
@@ -41,11 +41,11 @@ public class GameManager {
         
         names();
         while (true) {
-            /*if (pos.isCbt())
-                new fight(new Entity[]{new Goblin(), new Zombie()}, new int[]{1, 2}, team);
             
             if (pos == map.getMapList()[2])
-                initialTeam();*/
+                initialTeam();
+            
+            pos.runCbt(team);
             
             pos.display();
             

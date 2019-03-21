@@ -5,6 +5,9 @@
  */
 package room;
 
+import fights.fight;
+import hero.*;
+
 /**
  *
  * @author alex
@@ -15,7 +18,8 @@ public class Room {
     String desc, name;
     int[] itemList; //change type
     int[] enttList; //change type
-    boolean lockFront, lockRear, cbt;
+    boolean lockFront, lockRear;
+    int cbt;
     
     /**
      *
@@ -25,7 +29,7 @@ public class Room {
      * @param _lockR
      * @param _desc
      */
-    public Room(String _name, int size, boolean _lockF, boolean _lockR, boolean _cbt, String _desc) {
+    public Room(String _name, int size, boolean _lockF, boolean _lockR, int _cbt, String _desc) {
         name = _name;
         adj = new Room[size];
         lockFront = _lockF;
@@ -93,21 +97,19 @@ public class Room {
     
     /**
      *
-     * @return
-     */
-    public boolean isCbt() {
-        boolean res = cbt;
-        cbt = false;
-        return res;
-    }
-    
-    /**
-     *
      */
     public void printDirections() {
         System.out.print("["+adj[0].name);
         for (int i = 1; i < adj.length; i++)
             System.out.print(", "+adj[i].name);
         System.out.println("]");
+    }
+    
+    
+    public void runCbt(Team team) {
+        if (cbt == 1)
+            new fight(new Entity[]{new Goblin(), new Zombie()}, new int[]{1, 2}, team);
+        if (cbt == 2)
+            new fight(new Entity[]{new Hydra(), new Troll()}, new int[]{1, 1}, team);
     }
 }

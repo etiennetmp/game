@@ -16,6 +16,7 @@ public class Team {
     private Human[] teamMembers;
     private String teamName;
     private int teamLength;
+    private boolean wiz;
     
     /**
      *
@@ -28,6 +29,7 @@ public class Team {
         teamMembers = new Human[3];
         addMember("Hero", heroName);
         teamName = _teamName;
+        wiz = false;
     }
     
     /**
@@ -54,41 +56,87 @@ public class Team {
     
     public void teachSpell()
     {
-        int si;
-        Scanner sc = new Scanner(System.in);
-                
-        do{
-            System.out.println(teamMembers[1].getName() + ": I can teach you a spell, what do you want?");
-            System.out.println("1: Fire Dmg: 75  Mana cost: 50");
-            System.out.println("2: Ice Dmg: 40  Mana cost: 25");
-            System.out.println("3: I hate studies, i'll keep going as a swordman!");
+        if(wiz)
+        {
+            int si;
+            Scanner sc = new Scanner(System.in);
 
-            String s = sc.nextLine();
+            do{
+                System.out.println(teamMembers[1].getName() + ": I can teach you a spell, what do you want?");
+                System.out.println("1: Fire Dmg: 75  Mana cost: 50");
+                System.out.println("2: Ice Dmg: 40  Mana cost: 25");
+                System.out.println("3: I hate studies, i'll keep going as a swordman!");
 
-            si = (int)s.charAt(0) - 49;
-            
-            if(si < 0 || si > 2)
-                System.out.println("Hey i don't have that choice");
+                String s = sc.nextLine();
 
-        }while(si < 0 || si > 2);
+                si = (int)s.charAt(0) - 49;
 
-        if(si != 2)
-            teamMembers[0].setSpell(si);
+                if(si < 0 || si > 2)
+                    System.out.println("Hey i don't have that choice");
+
+            }while(si < 0 || si > 2);
+
+            if(si != 2)
+                teamMembers[0].setSpell(si);
+        }
     }
     
     
     public void addWarrior(){
-        System.out.println("\nA Warrior just appeared, what will be his name?");
+        System.out.println("A Warrior just appeared, can he join your team?");
+        int si;
         Scanner sc = new Scanner(System.in); 
-        String name = sc.nextLine();
-        addMember("Warrior", name);
+        
+        do{
+            System.out.println("1: Heck yes!");
+            System.out.println("2: Hell no!");
+            String s = sc.nextLine();
+
+            si = (int)s.charAt(0) - 49;
+            
+            if(si != 0 && si != 1)
+                System.out.println("Come on, there is no maybe, just decide!");
+            
+        }while(si != 0 && si != 1);
+        
+        
+        if(si == 0)
+        {
+            System.out.println("What will be the name of the Warrior?");
+            String name = sc.nextLine();
+            addMember("Warrior", name);
+            System.out.println(name + " successfully joined " + teamName);
+        }
+        System.out.println("");
     }
     
     public void addWizard(){
-        System.out.println("A Wizard just appeared, what will be his name?");
+        System.out.println("A Wizard just appeared, can he join your team?");
+        int si;
         Scanner sc = new Scanner(System.in); 
-        String name = sc.nextLine();
-        addMember("Wizard", name);
+        
+        do{
+            System.out.println("1: Heck yes!");
+            System.out.println("2: Hell no!");
+            String s = sc.nextLine();
+
+            si = (int)s.charAt(0) - 49;
+            
+            if(si != 0 && si != 1)
+                System.out.println("Come on, there is no maybe, just decide!");
+            
+        }while(si != 0 && si != 1);
+        
+        
+        if(si == 0)
+        {
+            System.out.println("What will be the name of the Wizard?");
+            String name = sc.nextLine();
+            addMember("Wizard", name);
+            System.out.println(name + " successfully joined " + teamName);
+            wiz = true;
+        }
+        System.out.println("");
     }
     /**
      *

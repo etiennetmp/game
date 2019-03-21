@@ -41,20 +41,11 @@ public class GameManager {
         
         names();
         while (true) {
-            if (pos.isCbt())
-            {
-                
-                new fight(new Entity[]{new Goblin(), new Zombie()}, 
-                        new int[]{1, 2}, team);
-                
-                team.teachSpell();
-                
-                
-                team.addWarrior();
-                
-                new fight(new Entity[]{new Hydra(), new Troll()}, 
-                        new int[]{1, 1}, team);
-            }
+            /*if (pos.isCbt())
+                new fight(new Entity[]{new Goblin(), new Zombie()}, new int[]{1, 2}, team);
+            
+            if (pos == map.getMapList()[2])
+                initialTeam();*/
             
             pos.display();
             
@@ -75,9 +66,15 @@ public class GameManager {
         team = new Team(name, teamName);
         
         team.addWizard();
-        
-        
     }
+    
+    
+    private void initialTeam() {
+        team.teachSpell();
+        team.addWarrior();
+        new fight(new Entity[]{new Hydra(), new Troll()}, new int[]{1, 1}, team);
+    }
+    
     
     private void playerMove(int x) {
         if (x == 0) {

@@ -212,7 +212,7 @@ public class fight {
     
     private void updateFight(Entity[] ennemies, int[] numbers){
         
-        System.out.print("You are facing ");
+        System.out.print("\nYou are facing ");
         opponentNumber = 0;
         
         for(int i = 0; i < ennemies.length; ++i){

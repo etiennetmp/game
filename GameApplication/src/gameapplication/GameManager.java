@@ -43,34 +43,14 @@ public class GameManager {
         while (true) {
             if (pos.isCbt())
             {
-                Scanner sc = new Scanner(System.in);
+                
                 new fight(new Entity[]{new Goblin(), new Zombie()}, 
                         new int[]{1, 2}, team);
                 
-                int si;
+                team.teachSpell();
                 
-                do{
-                    System.out.println(team.getTeamMembers()[1].getName() + ": I can teach you a spell, what do you want?");
-                    System.out.println("1: Fire Dmg: 75  Mana cost: 50");
-                    System.out.println("2: Ice Dmg: 40  Mana cost: 25");
-                    System.out.println("3: I hate studies, i'll keep going as a swordman!");
-
-                    String s = sc.nextLine();
-
-                    si = (int)s.charAt(0) - 49;
-                    if(si < 0 || si > 2)
-                        System.out.println("Hey i don't have that choice");
-                    
-                }while(si < 0 || si > 2);
                 
-                if(si != 2)
-                    team.getTeamMembers()[0].setSpell(si);
-                
-                System.out.println("\nA Warrior just appeared, what will be his name?");
-                
-                String name = sc.nextLine();
-                team.addMember("Warrior", name);
-                
+                team.addWarrior();
                 
                 new fight(new Entity[]{new Hydra(), new Troll()}, 
                         new int[]{1, 1}, team);
@@ -94,9 +74,9 @@ public class GameManager {
         String teamName = sc.nextLine();
         team = new Team(name, teamName);
         
-        System.out.println("A Wizard just appeared, what will be his name?");
-        name = sc.nextLine();
-        team.addMember("Wizard", name);
+        team.addWizard();
+        
+        
     }
     
     private void playerMove(int x) {

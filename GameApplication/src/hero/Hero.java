@@ -94,6 +94,7 @@ public class Hero extends Human {
         else
             return;
         
+        System.out.println("Congrats! You just learned how to use " + spellName);
         spell = true;
     }
     

@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/hero/Hero.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/fights/fight.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/gameapplication/GameApplication.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/hero/Team.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/gameapplication/GameManager.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/hero/Human.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/hero/Warrior.java</file>
-            <file>file:/home/atomesz/Documents/game/GameApplication/src/hero/Wizard.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/fights/fight.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Warrior.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Goblin.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Hero.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Zombie.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/gameapplication/GameManager.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Team.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Human.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Wizard.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Drake.java</file>
+            <file>file:/home/atomesz/Documents/nb/game/GameApplication/src/hero/Entity.java</file>
         </group>
     </open-files>
 </project-private>

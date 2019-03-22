@@ -46,7 +46,7 @@ public class Hero extends Human {
      */
     public String[] getAttacks(){
         return new String[]{"sword Dmg: " + swordDmg,
-                spell ? spellName + "Dmg: " + spellDmg + " Mana cost: " 
+                spell ? spellName + ", Dmg: " + spellDmg + " Mana cost: " 
                 + spellCost : "Not unlocked yet",
                 bow ? "Bow    Arrows left: " + numArrows + " Dmg: " + arrowDmg 
                 : "Not unlocked yet"};

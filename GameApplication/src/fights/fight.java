@@ -62,18 +62,20 @@ public class fight {
             do{
                 do{
 
-                    System.out.println("Who do you want to attack?");
+                    System.out.println("What do you want to do?");
 
                     for(int i = 0; i < ennemies.length; ++i)
                     {
-                        System.out.println((i+1) + ": " + ennemies[i].getType());
+                        System.out.println((i+1) + ": attack the " 
+                                + ennemies[i].getType());
                     }
 
 
 
                     String e = sc.nextLine();
                     ei = (int)e.charAt(0) - 49;
-                    if(ei < 0 || ei >= ennemies.length || ennemies[ei].getHp() == 0)
+                    if(ei < 0 || ei >= ennemies.length 
+                              || ennemies[ei].getHp() == 0)
                     {
                         if(!(ei < 0 || ei >= ennemies.length))
                         {

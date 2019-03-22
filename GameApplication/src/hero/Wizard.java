@@ -36,8 +36,9 @@ public class Wizard extends Human {
      * @return
      */
     public String[] getAttacks(){
-        return new String[]{"Fire Dmg: " + fireDmg + " Mana cost: " + fireCost,
-                            "Ice Dmg: " + iceDmg + " Mana cost: " + iceCost};
+        return new String[]{"Fire, Dmg: " + fireDmg + " Mana cost: " + fireCost,
+                            "Ice, Dmg: " + iceDmg + " Mana cost: " + iceCost,
+                            "EMP, Dmg: " + getMp() + " Mana cost: " + getMp()};
     }
      
     
@@ -74,12 +75,20 @@ public class Wizard extends Human {
             return fireDmg;
         }
         
-        else if(getMp() >= iceCost)
+        else if(i == 1 && getMp() >= iceCost)
         {
             setMp(getMp() - iceCost);
             return iceDmg;
         }
-                
-        return 0;
+        
+        else
+        {
+            int currentMp = getMp();
+            setMp(0);
+            if(currentMp == 0)
+                System.out.println("You are already out of mana..");
+            
+            return currentMp;
+        }                
     }
 }

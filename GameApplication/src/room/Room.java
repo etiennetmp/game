@@ -49,7 +49,7 @@ public class Room {
     /**
      * Display descriptions of current map and names of next maps
      */
-    public void display() {
+    public void display(Team team) {
         
         System.out.println(desc+"\n=============================================");
         
@@ -63,7 +63,7 @@ public class Room {
             for (int i = 0; i < enttList.length; i++)
                 System.out.println((i+enttList.length+1)+" : "+enttList[i]);
         
-        if (itemList.length > 0)
+        if (itemList.length > 0 && !team.getTeamMembers()[0].hasBow())
             for (int i = 0; i < itemList.length; i++)
                 System.out.println((i+adj.length+enttList.length+1)+" : "+itemList[i]);
     }

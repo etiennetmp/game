@@ -42,13 +42,13 @@ public class GameManager {
         names();
         while (team.isGameOn()) {
             
-            if (pos == map.getMapList()[2])
+            /*if (pos == map.getMapList()[2])
                 initialTeam();
             
-            pos.runCbt(team);
+            pos.runCbt(team);*/
             if(!team.isGameOn())
                 break;
-            pos.display();
+            pos.display(team);
             
             Scanner sc = new Scanner(System.in);
             String usrInput = sc.nextLine();
@@ -98,8 +98,10 @@ public class GameManager {
             else
                 System.out.println("Door is lock");
         else {
-            if (pos == map.getMapList()[10] && x == 1)
+            if (pos == map.getMapList()[10] && x == 1) {
                 team.getTeamMembers()[0].obtainBow();
+                team.getTeamMembers()[0].setNumArrows(5);
+            }
         }
     }
     

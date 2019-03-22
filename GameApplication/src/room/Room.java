@@ -16,7 +16,7 @@ public class Room {
     Room[] adj;
     Room prec;
     String desc, name;
-    int[] itemList; //change type
+    String[] itemList; //change type
     int[] enttList; //change type
     boolean lockFront, lockRear;
     int cbt;
@@ -36,12 +36,13 @@ public class Room {
         lockRear = _lockR;
         cbt = _cbt;
         desc = _desc;
-        itemList = new int[0];
+        itemList = new String[0];
         enttList = new int[0];
     }
     
-    public void addItem() {
-        itemList = new int[1];
+    public void addItem(String s) {
+        itemList = new String[1];
+        itemList[0] = s;
     }
     
     
@@ -58,11 +59,13 @@ public class Room {
         for (int i = 0; i < adj.length; i++)
             System.out.println((i+1)+" : "+adj[i].name);
         
-        for (int i = 0; i+1 < enttList.length; i++)
-            System.out.println((i+enttList.length+1)+" : "+enttList[i]);
+        if (enttList.length > 0)
+            for (int i = 0; i < enttList.length; i++)
+                System.out.println((i+enttList.length+1)+" : "+enttList[i]);
         
-        for (int i = 0; i+1 < itemList.length; i++)
-            System.out.println((i+adj.length+enttList.length+1)+" : "+itemList[i]);
+        if (itemList.length > 0)
+            for (int i = 0; i < itemList.length; i++)
+                System.out.println((i+adj.length+enttList.length+1)+" : "+itemList[i]);
     }
     
     /**
@@ -103,6 +106,11 @@ public class Room {
         for (int i = 1; i < adj.length; i++)
             System.out.print(", "+adj[i].name);
         System.out.println("]");
+    }
+    
+    
+    public void addBow() {
+        addItem("bow");
     }
     
     

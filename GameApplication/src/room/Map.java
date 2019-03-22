@@ -37,7 +37,8 @@ public class Map {
         mapList[8] = new Room("final boss room", 1, false, false, 0, "Final boss !!!!!");
         
         mapList[9] = new Room("fields", 1, false, false, 0, "Here is the open world!");
-        mapList[10] = new Room("lost land", 0, false, false, 0, "There is nothing here!");
+        mapList[10] = new Room("lost land", 0, false, false, 0, "There is nothing here! Just a bow and some arrows..");
+        mapList[10].addBow();
         
         linkAll();
     }

@@ -42,10 +42,10 @@ public class GameManager {
         names();
         while (team.isGameOn()) {
             
-            if (pos == map.getMapList()[2])
+            /*if (pos == map.getMapList()[2])
                 initialTeam();
             
-            pos.runCbt(team);
+            pos.runCbt(team);*/
             if(!team.isGameOn())
                 break;
             pos.display();
@@ -90,17 +90,17 @@ public class GameManager {
                     System.out.println("Door is lock");
             }
         }
-        else
-            if (x > pos.getAdj().length)
-                System.out.println("Input is too high");
-            else {
-                if (!pos.getLockF()) {
-                    pos = pos.getAdj()[x-1];
-                    clearConsole();
-                }
-                else
-                    System.out.println("Door is lock");
+        else if (x <= pos.getAdj().length)
+            if (!pos.getLockF()) {
+                pos = pos.getAdj()[x-1];
+                clearConsole();
             }
+            else
+                System.out.println("Door is lock");
+        else {
+            if (pos == map.getMapList()[10] && x == 1)
+                team.getTeamMembers()[0].obtainBow();
+        }
     }
     
     /**

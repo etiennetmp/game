@@ -29,7 +29,9 @@ public class Room {
      * @param _lockR
      * @param _desc
      */
-    public Room(String _name, int size, boolean _lockF, boolean _lockR, int _cbt, String _desc) {
+    public Room(String _name, int size, boolean _lockF, 
+            boolean _lockR, int _cbt, String _desc) {
+        
         name = _name;
         adj = new Room[size];
         lockFront = _lockF;
@@ -51,7 +53,8 @@ public class Room {
      */
     public void display(Team team) {
         
-        System.out.println(desc+"\n=============================================");
+        System.out.println(desc+"\n========================"
+                + "                 =====================");
         
         if (name != "start")
             System.out.println("0 : go back");
@@ -65,7 +68,8 @@ public class Room {
         
         if (itemList.length > 0 && !team.getTeamMembers()[0].hasBow())
             for (int i = 0; i < itemList.length; i++)
-                System.out.println((i+adj.length+enttList.length+1)+" : "+itemList[i]);
+                System.out.println((i+adj.length+enttList.length+1)
+                        +" : "+itemList[i]);
     }
     
     /**
@@ -97,6 +101,7 @@ public class Room {
      * @return
      */
     public boolean getLockF() { return lockFront; }
+    public void unlockF() {lockFront = false; }
     
     /**
      *
@@ -113,11 +118,24 @@ public class Room {
         addItem("bow");
     }
     
+    public void addKey() {
+        addItem("key");
+    }
+    
     
     public void runCbt(Team team) {
         if (cbt == 1)
-            new fight(new Entity[]{new Goblin(), new Zombie()}, new int[]{1, 2}, team);
+            new fight(new Entity[]{new Goblin(), new Zombie()},
+                    new int[]{1, 2}, team);
         if (cbt == 2)
-            new fight(new Entity[]{new Hydra(), new Troll()}, new int[]{1, 1}, team);
+            new fight(new Entity[]{new Hydra(), new Troll()},
+                    new int[]{1, 1}, team);
+        if (cbt == 4)
+            new fight(new Entity[]{new Golem(),
+                new Zombie()}, new int[]{2, 2}, team);
+        if (cbt == 8) {
+            team.regen();
+            new fight(new Entity[]{new Drake()}, new int[]{3}, team);
+        }
     }
 }

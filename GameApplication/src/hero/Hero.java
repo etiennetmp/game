@@ -143,7 +143,7 @@ public class Hero extends Human {
      *
      * @return
      */
-    public int getKey(){
+    public int getKey() {
         return key;
     }
     
@@ -151,7 +151,7 @@ public class Hero extends Human {
      *
      * @param k
      */
-    public void setKey(int k){
+    public void setKey(int k) {
         key = k;
     }
     

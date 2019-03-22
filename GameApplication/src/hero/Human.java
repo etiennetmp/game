@@ -126,4 +126,19 @@ public class Human extends Entity {
         return 0;
     }
     
+    /**
+     *
+     * @return
+     */
+    public int getKey() {
+        return 0;
+    }
+    
+    /**
+     *
+     * @param k
+     */
+    public void setKey(int k) {
+
+    }
 }

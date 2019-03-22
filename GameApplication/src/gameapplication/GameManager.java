@@ -9,8 +9,6 @@ import fights.*;
 import hero.*;
 import java.util.Scanner;
 
-import hero.*;
-//import fights.*;
 
 /**
  *
@@ -50,6 +48,8 @@ public class GameManager {
                 break;
             pos.display(team);
             
+            win();
+            
             Scanner sc = new Scanner(System.in);
             String usrInput = sc.nextLine();
             int usrChoice = usrInput.charAt(0) - 48;
@@ -73,7 +73,13 @@ public class GameManager {
     private void initialTeam() {
         team.teachSpell();
         team.addWarrior();
-        new fight(new Entity[]{new Hydra(), new Troll()}, new int[]{1, 1}, team);
+        new fight(new Entity[]{new Hydra(), new Troll()},
+                new int[]{1, 1}, team);
+    }
+    
+    private void win() {
+        if (pos == map.getMapList()[0] && team.getTeamMembers()[0].getKey() > 0)
+            team.gameWon();
     }
     
     
@@ -91,7 +97,7 @@ public class GameManager {
             }
         }
         else if (x <= pos.getAdj().length)
-            if (!pos.getLockF()) {
+            if (!pos.getAdj()[x-1].getLockF()) {
                 pos = pos.getAdj()[x-1];
                 clearConsole();
             }
@@ -101,6 +107,11 @@ public class GameManager {
             if (pos == map.getMapList()[10] && x == 1) {
                 team.getTeamMembers()[0].obtainBow();
                 team.getTeamMembers()[0].setNumArrows(5);
+            }
+            if (pos == map.getMapList()[5] && x == 1) {
+                team.getTeamMembers()[0].setKey(
+                        team.getTeamMembers()[0].getKey() + 1);
+                map.getMapList()[8].unlockF();
             }
         }
     }

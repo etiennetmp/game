@@ -42,10 +42,10 @@ public class GameManager {
         names();
         while (team.isGameOn()) {
             
-            /*if (pos == map.getMapList()[2])
+            if (pos == map.getMapList()[2])
                 initialTeam();
             
-            pos.runCbt(team);*/
+            pos.runCbt(team);
             if(!team.isGameOn())
                 break;
             pos.display();

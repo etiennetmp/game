@@ -40,10 +40,7 @@ public class GameManager {
         names();
         while (team.isGameOn()) {
             
-            /*if (pos == map.getMapList()[2])
-                initialTeam();
-            
-            pos.runCbt(team);*/
+            pos.runCbt(team);
             if(!team.isGameOn())
                 break;
             pos.display(team);
@@ -64,18 +61,10 @@ public class GameManager {
         String name = sc.nextLine();
         System.out.println("OK " + name + ", what will be your team name?");
         String teamName = sc.nextLine();
-        team = new Team(name, teamName);
-        
-        team.addWizard();
+        team = new Team(name, teamName);        
     }
     
     
-    private void initialTeam() {
-        team.teachSpell();
-        team.addWarrior();
-        new fight(new Entity[]{new Hydra(), new Troll()},
-                new int[]{1, 1}, team);
-    }
     
     private void win() {
         if (pos == map.getMapList()[0] && team.getTeamMembers()[0].getKey() > 0)

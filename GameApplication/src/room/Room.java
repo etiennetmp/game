@@ -20,6 +20,7 @@ public class Room {
     int[] enttList; //change type
     boolean lockFront, lockRear;
     int cbt;
+    boolean cbt1, cbt2, cbt3, cbt4;
     
     /**
      *
@@ -40,6 +41,10 @@ public class Room {
         desc = _desc;
         itemList = new String[0];
         enttList = new int[0];
+        cbt1 = false;
+        cbt2 = false;
+        cbt3 = false;
+        cbt4 = false;
     }
     
     public void addItem(String s) {
@@ -124,16 +129,36 @@ public class Room {
     
     
     public void runCbt(Team team) {
-        if (cbt == 1)
-            new fight(new Entity[]{new Goblin(), new Zombie()},
+        if (cbt == 1 && !cbt1)
+        {
+            cbt1 = true;
+            new fight(new Entity[]{new Goblin(), new Rat()},
                     new int[]{1, 2}, team);
-        if (cbt == 2)
+            
+            team.addWizard();
+            
+            new fight(new Entity[]{new Goblin(), new Zombie()},
+                    new int[]{3, 2}, team);
+            team.teachSpell();
+        
+        }
+        else if (cbt == 2 && !cbt2)
+        {
+            cbt2 = true;
+            team.addWarrior();
             new fight(new Entity[]{new Hydra(), new Troll()},
                     new int[]{1, 1}, team);
-        if (cbt == 4)
+        }
+        
+        else if (cbt == 4 && !cbt3)
+        {
+            cbt3 = true;
             new fight(new Entity[]{new Golem(),
-                new Zombie()}, new int[]{2, 2}, team);
-        if (cbt == 8) {
+                new Rat()}, new int[]{2, 7}, team);
+            
+        }
+        else if (cbt == 8 && !cbt4) {
+            cbt4 = true;
             team.regen();
             new fight(new Entity[]{new Drake()}, new int[]{3}, team);
         }

@@ -107,7 +107,7 @@ public class Human extends Entity {
     }
     
     public boolean hasBow(){
-        return true;
+        return false;
     }
     
     /**

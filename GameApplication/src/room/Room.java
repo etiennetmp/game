@@ -71,7 +71,19 @@ public class Room {
             for (int i = 0; i < enttList.length; i++)
                 System.out.println((i+enttList.length+1)+" : "+enttList[i]);
         
-        if (itemList.length > 0 && !team.getTeamMembers()[0].hasBow())
+        /*if (itemList.length > 0 && !team.getTeamMembers()[0].hasBow())
+            for (int i = 0; i < itemList.length; i++)
+                System.out.println((i+adj.length+enttList.length+1)
+                        +" : "+itemList[i]);*/
+        
+        if (itemList.length > 0 && itemList[0] == "bow" 
+                && !team.getTeamMembers()[0].hasBow())
+            for (int i = 0; i < itemList.length; i++)
+                System.out.println((i+adj.length+enttList.length+1)
+                        +" : "+itemList[i]);
+        
+        else if (itemList.length > 0 && itemList[0] == "key" 
+                && team.getTeamMembers()[0].getKey() == 0)
             for (int i = 0; i < itemList.length; i++)
                 System.out.println((i+adj.length+enttList.length+1)
                         +" : "+itemList[i]);

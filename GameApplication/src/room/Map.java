@@ -51,10 +51,10 @@ public class Map {
                         + " diamonds incrusted into it's eyes! "
                         + "The statue is very high!");
         
-        mapList[7] = new Room("small room", 1, false, false, 0, 
+        mapList[7] = new Room("small room", 1, false, false, 4, 
                 "You found glasses on the ground.");
         
-        mapList[8] = new Room("final boss room", 1, true, false, 0, 
+        mapList[8] = new Room("final boss room", 1, true, false, 8, 
                 "Final boss !!!!!");
         
         mapList[9] = new Room("fields", 1, false, false, 0, 

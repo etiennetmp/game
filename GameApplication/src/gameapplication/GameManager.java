@@ -114,7 +114,7 @@ public class GameManager {
     /**
      *
      */
-    public final static void clearConsole() {
+    public final void clearConsole() {
         System.out.print("\033[H\033[2J");
     }
 

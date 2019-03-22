@@ -12,7 +12,7 @@ package hero;
 public class Golem extends Entity{
     
     private int myDmg = 6;
-    private int myHp = 400;
+    private int myHp = 170;
     /**
      *
      * @param _hp

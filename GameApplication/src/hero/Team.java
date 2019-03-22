@@ -146,6 +146,9 @@ public class Team {
     public void regen(){
         for(int i = 0; i < teamLength; ++i)
         {
+            System.out.println("\nAll the members of " + teamName 
+                    + " got back their Hp and Mana to max!\n" 
+                    + "Maybe a hard fight is coming up..");
             teamMembers[i].heal();
         }
     }
